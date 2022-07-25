@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app-wrapper">
+        <form class="search-form" id="search-city-form">
+          <input
+            class="place-input"
+            id="city-input"
+            type="text"
+            placeholder="Type a city..."
+            autofocus="on"
+            autocomplete="off"
+          />
+          <button class="search-btn" type="submit">
+            <img class="search-icon" src="images/search-icon.png" />
+          </button>
+          <button class="location-btn" id="current-location-btn" type="locate">
+            <img class="location-icon" src="images/location-icon.png" />
+          </button>
+        </form>
+        <br />
+        <div class="row">
+          <div class="col-md-4">
+            <h1 id="city"></h1>
+            <h4>
+              <span class="day-current">Monday, July 5</span>
+              <span class="time-current">10:53</span>
+            </h4>
+          </div>
+          <div class="col-md-4">
+            <img class="sunny-icon" src="images/sunny-icon.png" />
+          </div>
+          <div class="col-md-4">
+            <h2 id="description"></h2>
+            <h3>
+              <span id="city-temperature"></span>
+              <span>℃</span>
+            </h3>
+          </div>
+          <div class="col-md-4" id="city-conditions">
+            <h4>Feels like: <span id="feels-like"></span>℃</h4>
+            <br />
+            <h4>Wind: <span id="wind-speed"></span>km/h</h4>
+            <br />
+            <h4>Humidity: <span id="humidity"></span>%</h4>
+            <br />
+          </div>
+          <div class="clearfix visible-md-block"></div>
+        </div>
+        <hr />
+        <div class="row" id="weather-forecast">
+          <div class="col-md-2">
+            <div class="day-forecast">
+              <h3>Mon</h3>
+            </div>
+            <img src="images/cloudy-icon.png" />
+            <div class="temperature-forecast">
+              <span class="temp-max"><h4>26℃</h4></span>
+              <span class="temp-min"><h4>21℃</h4></span>
+              <hr />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="day-forecast">
+              <h3>Tue</h3>
+            </div>
+            <img src="images/sunny-icon.png" />
+            <div class="temperature-forecast">
+              <span class="temp-max"><h4>28℃</h4></span>
+              <span class="temp-min"><h4>23℃</h4></span>
+              <hr />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="day-forecast">
+              <h3>Wed</h3>
+            </div>
+            <img src="images/sunny-icon.png" />
+            <div class="temperature-forecast">
+              <span class="temp-max"><h4>29℃</h4></span>
+              <span class="temp-min"><h4>22℃</h4></span>
+              <hr />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="day-forecast">
+              <h3>Thu</h3>
+            </div>
+            <img src="images/sunny-icon.png" />
+            <div class="temperature-forecast">
+              <span class="temp-max"><h4>30℃</h4> </span>
+              <span class="temp-min"><h4>23℃</h4></span>
+              <hr />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="day-forecast">
+              <h3>Fri</h3>
+            </div>
+            <img src="images/sunny-icon.png" />
+            <div class="temperature-forecast">
+              <span class="temp-max"><h4>31℃</h4> </span>
+              <span class="temp-min"><h4>23℃</h4></span>
+              <hr />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="day-forecast">
+              <h3>Sat</h3>
+            </div>
+            <img src="images/sunny-icon.png" />
+            <div class="temperature-forecast">
+              <span class="temp-max"><h4>32℃</h4></span>
+              <span class="temp-min"><h4>24℃</h4></span>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <br />
+      </div>
+      <footer>
+        <a href="#">Coded by Olena Soroka</a>
+      </footer>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
