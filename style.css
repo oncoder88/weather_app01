@@ -11,17 +11,12 @@ body {
   letter-spacing: 0.5px;
 }
 
-h1 {
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px;
-}
-
 h2 {
-  color: yellow;
   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px;
 }
 
 img {
-  width: 40px;
+  width: 60px;
   margin-left: 10px;
   margin-bottom: 10px;
 }
@@ -34,7 +29,7 @@ a {
 .weather-app-wrapper {
   max-width: 800px;
   overflow: hidden;
-  margin: 50px;
+  margin: 20px;
   padding: 25px;
   padding-left: 35px;
   margin-right: auto;
@@ -104,9 +99,8 @@ a {
   z-index: 2;
 }
 
-.sunny-icon {
+.col-md-4 .main-icon {
   width: 100px;
-  margin-bottom: 25px;
 }
 
 .day-forecast {
@@ -124,14 +118,13 @@ a {
 }
 
 .col-md-4 {
-  margin-top: 50px;
-  margin-bottom: 20px;
+  margin-top: 30px;
   margin-left: 30px;
 }
 
 #city-conditions {
   margin-top: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   margin-left: 30px;
   line-height: 5px;
   align-content: center;
