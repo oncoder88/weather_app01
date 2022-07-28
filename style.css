@@ -114,6 +114,10 @@ hr {
   z-index: 2;
 }
 
+.status {
+  font-size: 15px;
+}
+
 .col-md-4 .main-icon {
   width: 100px;
 }
@@ -143,6 +147,10 @@ hr {
 
 #city-temperature {
   font-size: 50px;
+}
+
+#description:first-letter {
+  text-transform: capitalize;
 }
 
 #city-conditions {

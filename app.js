@@ -1,20 +1,27 @@
 //1#display current day and time:
 
-let now = new Date();
-
-let dayToday = document.querySelector("h4 .day-current");
-let timeToday = document.querySelector("h4 .time-current");
-
-let date = now.getDate();
-let hours = now.getHours();
-let minutes = now.getMinutes();
-minutes = minutes >= 9 ? minutes : "0" + minutes;
-
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-let day = days[now.getDay()];
-
-dayToday.innerHTML = `${day} ${date}`;
-timeToday.innerHTML = `${hours}:${minutes}`;
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+  let days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
 
 //#2add a search engine, when searching for a city:
 
@@ -24,7 +31,8 @@ function displayWeatherCondition(response) {
   document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.feels_like);
   document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#description").innerHTML = response.data.weather[0].main;
+  document.querySelector("#description").innerHTML = response.data.weather[0].description;
+  document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function searchCity(city) {
