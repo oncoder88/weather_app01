@@ -14,8 +14,10 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -67,15 +69,15 @@
             <h2 id="description"></h2>
             <h3>
               <span id="city-temperature"></span>
-              <span>℃</span>
+              <span class="units">℃ |<a href="#">℉</a></span>
             </h3>
           </div>
           <div class="col-md-4" id="city-conditions">
-            <h5>Feels like: <span id="feels-like"></span>℃</h5>
-            <br />
-            <h5>Wind: <span id="wind-speed"></span>km/h</h5>
-            <br />
-            <h5>Humidity: <span id="humidity"></span>%</h5>
+            <ul>
+              <li>Feels like: <span id="feels-like"></span>℃</li>
+              <li>Wind: <span id="wind-speed"></span>km/h</li>
+              <li>Humidity: <span id="humidity"></span>%</li>
+            </ul>
             <br />
           </div>
           <div class="clearfix visible-md-block"></div>
