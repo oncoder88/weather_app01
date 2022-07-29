@@ -7,9 +7,9 @@ function formatDate(timestamp) {
     hours = `0${hours}`;
   }
   let minutes = date.getMinutes();
-    if (minutes < 10) {
-      minutes = `0${minutes}`;
-    }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
   let days = [
     "Monday",
     "Tuesday",
@@ -17,7 +17,7 @@ function formatDate(timestamp) {
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday"
+    "Sunday",
   ];
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
@@ -27,12 +27,21 @@ function formatDate(timestamp) {
 
 function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#city-temperature").innerHTML = Math.round(response.data.main.temp);
-  document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.feels_like);
-  document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
+  document.querySelector("#city-temperature").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    response.data.main.feels_like
+  );
+  document.querySelector("#wind-speed").innerHTML = Math.round(
+    response.data.wind.speed
+  );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#description").innerHTML = response.data.weather[0].description;
-  document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
+  document.querySelector("#date").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
 }
 
 function searchCity(city) {
