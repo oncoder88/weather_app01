@@ -53,23 +53,21 @@
         <div class="row">
           <div class="col-md-4">
             <h2 id="city"></h2>
-              <small class="status">Last updated:</small>
-              <h4 id="date">
-                <h4>         
+            <small class="status">Last updated:</small>
+            <h4 id="date"></h4>
           </div>
           <div class="col-md-4">
-            <img
-              class="main-icon"
-              id="icon"
-              src=""
-              alt="weather icon"
-            />
+            <img class="main-icon" id="icon" src="" alt="weather icon" />
           </div>
           <div class="col-md-4">
             <h2 id="description"></h2>
             <h3>
               <span id="city-temperature"></span>
-              <span class="units">℃ |<a href="#">℉</a></span>
+              <span class="units">
+                <a href="#" class="active" id="celsius-link">℃</a>
+                |
+                <a href="#" id="fahrenheit-link">℉</a>
+              </span>
             </h3>
           </div>
           <div class="col-md-4" id="city-conditions">

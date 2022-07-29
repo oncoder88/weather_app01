@@ -165,3 +165,13 @@ hr {
   align-items: center;
   text-align: center;
 }
+
+.active {
+  color: #fff;
+  cursor: default;
+}
+
+.active:hover {
+  color: #fff;
+  text-decoration: none;
+}
