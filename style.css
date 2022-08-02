@@ -9,6 +9,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   letter-spacing: 0.5px;
+  transition: 0.5s;
+}
+
+body.active {
+  background-image: url(/images/background-night.jpg);
 }
 
 h2 {
@@ -174,4 +179,47 @@ hr {
 .active:hover {
   color: #fff;
   text-decoration: none;
+}
+
+#toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  height: 50px;
+  border-radius: 160px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px) saturate(180%);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+
+.toggle-sun {
+  width: 30px;
+  left: 2px;
+  padding-top: 10px;
+}
+
+.toggle-moon {
+  width: 30px;
+  padding-top: 10px;
+  transform: translate(50px, -50px);
+}
+
+#toggle .indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: scale(0.9);
+  transition: 0.5s;
+}
+
+#toggle.active .indicator {
+  left: 50px;
 }

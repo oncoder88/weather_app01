@@ -25,30 +25,54 @@
   <body>
     <div class="container">
       <div class="weather-app-wrapper">
-        <form class="search-form" id="search-city-form">
-          <input
-            class="place-input"
-            id="city-input"
-            type="text"
-            placeholder="Type a city..."
-            autofocus="on"
-            autocomplete="off"
-          />
-          <button class="search-btn" type="submit">
-            <img
-              class="search-icon"
-              src="images/search-icon.png"
-              alt="magnifier"
-            />
-          </button>
-          <button class="location-btn" id="current-location-btn" type="locate">
-            <img
-              class="location-icon"
-              src="images/location-icon.png"
-              alt="location pin"
-            />
-          </button>
-        </form>
+        <div class="row">
+          <div class="col-md-9">
+            <form class="search-form" id="search-city-form">
+              <input
+                class="place-input"
+                id="city-input"
+                type="text"
+                placeholder="Type a city..."
+                autofocus="on"
+                autocomplete="off"
+              />
+              <button class="search-btn" type="submit">
+                <img
+                  class="search-icon"
+                  src="images/search-icon.png"
+                  alt="magnifier"
+                />
+              </button>
+              <button
+                class="location-btn"
+                id="current-location-btn"
+                type="locate"
+              >
+                <img
+                  class="location-icon"
+                  src="images/location-icon.png"
+                  alt="location pin"
+                />
+              </button>
+            </form>
+          </div>
+          <div class="col-md-2 mt-3 px-4">
+            <div id="toggle">
+              <i class="indicator">
+                <img
+                  class="toggle-sun"
+                  src="/images/sun-toggle.png"
+                  alt="sun icon"
+                />
+                <img
+                  class="toggle-moon"
+                  src="/images/moon-toggle.png"
+                  alt="moon icon"
+                />
+              </i>
+            </div>
+          </div>
+        </div>
         <br />
         <div class="row">
           <div class="col-md-4">

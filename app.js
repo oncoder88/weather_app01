@@ -1,4 +1,15 @@
-//1#display current day and time:
+//1 Toggle button that switching day-background and night-background themes:
+
+const body = document.querySelector("body");
+const toggle = document.getElementById("toggle");
+toggle.onclick = function() {
+  toggle.classList.toggle("active");
+  body.classList.toggle("active");
+}
+
+
+
+//2 Display current day and time:
 
 function formatDate(timestamp) {
   let date = new Date(timestamp);
@@ -23,7 +34,7 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-//#2add a search engine, when searching for a city:
+//3 Add a search engine, when searching for a city:
 
 function displayWeatherCondition(response) {
   let temperatureElement = document.querySelector("#city-temperature");
@@ -82,7 +93,7 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("New York");
 
-//3 Units converssion
+//4 Units converssion
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
