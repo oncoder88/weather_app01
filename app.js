@@ -30,10 +30,10 @@ function displayForecast() {
 
   let forecastHTML = `<div class="row">`;
   let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function(day) {
-  forecastHTML =
-    forecastHTML +
-    `
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
          <div class="col-md-2">
             <div class="day-forecast">
               <h5>${day}</h5>
@@ -47,8 +47,8 @@ function displayForecast() {
             </div>
           </div>
   `;
-  })
-  
+  });
+
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
@@ -114,10 +114,10 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 const body = document.querySelector("body");
 const toggle = document.getElementById("toggle");
-toggle.onclick = function() {
+toggle.onclick = function () {
   toggle.classList.toggle("active");
   body.classList.toggle("active");
-}
+};
 
 //5 Units conversion:
 
