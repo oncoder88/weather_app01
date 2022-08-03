@@ -1,15 +1,4 @@
-//1 Toggle button that switching day-background and night-background themes:
-
-const body = document.querySelector("body");
-const toggle = document.getElementById("toggle");
-toggle.onclick = function() {
-  toggle.classList.toggle("active");
-  body.classList.toggle("active");
-}
-
-
-
-//2 Display current day and time:
+//1 Display current day and time:
 
 function formatDate(timestamp) {
   let date = new Date(timestamp);
@@ -22,16 +11,46 @@ function formatDate(timestamp) {
     minutes = `0${minutes}`;
   }
   let days = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday",
   ];
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
+}
+
+//2 Implement a weather forecast function:
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function(day) {
+  forecastHTML =
+    forecastHTML +
+    `
+         <div class="col-md-2">
+            <div class="day-forecast">
+              <h5>${day}</h5>
+            </div>
+            <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="weather icon"
+            width="60"/>
+            <div class="temperature-forecast">
+              <span class="temp-max"><h5>26℃</h5></span>
+              <span class="temp-min"><h5>21℃</h5></span>
+              <hr />
+            </div>
+          </div>
+  `;
+  })
+  
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 //3 Add a search engine, when searching for a city:
@@ -91,9 +110,16 @@ searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#current-location-btn");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-searchCity("New York");
+//4 Toggle button that switching day-background and night-background themes:
 
-//4 Units converssion
+const body = document.querySelector("body");
+const toggle = document.getElementById("toggle");
+toggle.onclick = function() {
+  toggle.classList.toggle("active");
+  body.classList.toggle("active");
+}
+
+//5 Units conversion:
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
@@ -123,3 +149,6 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+searchCity("New York");
+displayForecast();

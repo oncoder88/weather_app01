@@ -21,7 +21,6 @@ h2 {
 }
 
 img {
-  width: 60px;
   margin-left: 10px;
   margin-bottom: 10px;
 }
@@ -166,7 +165,7 @@ hr {
   align-content: center;
 }
 
-#weather-forecast {
+.weather-forecast {
   align-items: center;
   text-align: center;
 }
