@@ -31,7 +31,7 @@ function formatDay(timestamp) {
  return days[day];
 }
 
-//2 Implement a weather forecast function:
+//2 Implemented a weather forecast function:
 
 function getForecast(coordinates) {
   
@@ -109,8 +109,6 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-
-
 //3 Added a search engine (city search and location button):
 
 function searchCity(city) {
@@ -146,41 +144,11 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 const body = document.querySelector("body");
 const toggle = document.getElementById("toggle");
-toggle.onclick = function () {
+toggle.onclick = function() {
   toggle.classList.toggle("active");
   body.classList.toggle("active");
 };
 
-//5 Units conversion:
-
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  // remove the active class from the celsius link
-  celsiusLink.classList.remove("active");
-  // add the active class from the fehrenheit link
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  let temperatureElement = document.querySelector("#city-temperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  // add the active class from the celsius link
-  celsiusLink.classList.add("active");
-  // remove the active class from the fehrenheit link
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#city-temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("New York");
 
