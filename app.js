@@ -23,6 +23,14 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+ let date = new Date(timestamp * 1000);
+ let day = date.getDay();
+ let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+ return days[day];
+}
+
 //2 Implement a weather forecast function:
 
 function getForecast(coordinates) {
@@ -63,7 +71,6 @@ function displayWeatherCondition(response) {
 
 function displayForecast(response) {
 
-  console.log(response.data.daily);
   let forecast = response.data.daily;
  
   let forecastElement = document.querySelector("#forecast");
@@ -75,10 +82,12 @@ function displayForecast(response) {
       `
          <div class="col-md-2">
             <div class="day-forecast">
-              <h5>${forecastDay.dt}</h5>
+              <h5>${formatDay(forecastDay.dt)}</h5>
             </div>
-            <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="weather icon"
-            width="60"/>
+            <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" 
+            alt="weather icon"
+            width="60"
+            />
             <div class="temperature-forecast">
               <span class="temp-max"><h5>${forecastDay.temp.max}℃</h5></span>
               <span class="temp-min"><h5>${forecastDay.temp.min}℃</h5></span>
