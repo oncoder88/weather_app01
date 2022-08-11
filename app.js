@@ -25,35 +25,13 @@ function formatDate(timestamp) {
 
 //2 Implement a weather forecast function:
 
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
+function getForecast(coordinates) {
+  
+  let apiKey = "b549e2624274bc33976ddd75f3bf8dad";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
 
-  let forecastHTML = `<div class="row">`;
-  let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-         <div class="col-md-2">
-            <div class="day-forecast">
-              <h5>${day}</h5>
-            </div>
-            <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="weather icon"
-            width="60"/>
-            <div class="temperature-forecast">
-              <span class="temp-max"><h5>26℃</h5></span>
-              <span class="temp-min"><h5>21℃</h5></span>
-              <hr />
-            </div>
-          </div>
-  `;
-  });
-
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
+  axios.get(apiUrl).then(displayForecast);
 }
-
-//3 Add a search engine, when searching for a city:
 
 function displayWeatherCondition(response) {
   let temperatureElement = document.querySelector("#city-temperature");
@@ -79,7 +57,44 @@ function displayWeatherCondition(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
+
+function displayForecast(response) {
+
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
+ 
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay) {
+    forecastHTML =
+      forecastHTML +
+      `
+         <div class="col-md-2">
+            <div class="day-forecast">
+              <h5>${forecastDay.dt}</h5>
+            </div>
+            <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="weather icon"
+            width="60"/>
+            <div class="temperature-forecast">
+              <span class="temp-max"><h5>${forecastDay.temp.max}℃</h5></span>
+              <span class="temp-min"><h5>${forecastDay.temp.min}℃</h5></span>
+              <hr />
+            </div>
+          </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+
+
+//3 Added a search engine (city search and location button):
 
 function searchCity(city) {
   let apiKey = "b549e2624274bc33976ddd75f3bf8dad";
@@ -151,4 +166,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("New York");
-displayForecast();
+
